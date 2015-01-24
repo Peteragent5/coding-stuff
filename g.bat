@@ -1,7 +1,7 @@
 @echo off
 for %%f in ("%~1") do set basename=%%~nf
 for %%f in ("%~1") do set extension=%%~xf
-::if "%extension%"=="" set extension=.cpp
+if "%extension%"=="" set extension=.cpp
 set parentdir=%~dp1
 set file=%parentdir%%basename%%extension%
 if "%file%"=="%extension%" goto end

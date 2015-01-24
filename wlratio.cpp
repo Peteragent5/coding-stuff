@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 				<< "Loss Ratio: " << lossratio(atof(argv[1]), atof(argv[2]), atof(argv[3])) << "%";
 		return 0;
 	} else {
-		cout << "Usage: " << argv[0] << " <wins> <draws> <losses>" << endl
+		cout << "Usage: " << argv[0] << " [wins] [draws] [losses]" << endl
 				<< "\tdraws are optional\n";
 	}
 	return 0;

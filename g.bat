@@ -1,17 +1,12 @@
 @echo off
-for %%f in ("%~1") do set basename=%%~nf
-for %%f in ("%~1") do set extension=%%~xf
-if "%extension%"=="" set extension=.cpp
-set parentdir=%~dp1
-set file=%parentdir%%basename%%extension%
-if "%file%"=="%extension%" goto end
-if not exist "%file%" goto nofile
+if not exist "%~dpn1.cpp" echo File not found^! && exit /b
 cls
-g++ "%file%" -O2 -o "%parentdir%%basename%"
+title Compiling %~n1...
+echo Compiling %~n1...
+g++ -O2 -optl-static "%~dpn1.cpp" -o "%~dpn1.exe"
+title %COMSPEC%
+::if errorlevel 1 pause>nul
 exit /b
-:end
+:usage
 echo Please input file
-exit /b
-:nofile
-echo File not found^!
 exit /b
